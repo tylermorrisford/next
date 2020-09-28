@@ -15,7 +15,7 @@ export default function Home() {
     }
 
     const handleChange = (e) => {
-        setFact(e.target.value)
+        setFact(e.target.value);
     }
 
     const saveFact = () => {
