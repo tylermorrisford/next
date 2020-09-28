@@ -1,9 +1,19 @@
 import Link from 'next/link'
+
 export default function About(){
+
+    const pageStyle = {
+        textAlign: 'center',
+        fontFamily: 'Helvetica',
+        margin: '200px auto',
+        width: '300px',
+        fontWeight: 300
+    }
+
     return(
-        <>
-        <p style={{textAlign: 'center', margin: '100px auto'}}>Hi I'm teef</p>
-        <p style={{textAlign: 'center', margin: '100px auto'}}><Link href="/"><a>&#8592; back</a></Link></p>
-        </>
+        <div style={pageStyle}>
+        <p style={{marginBottom: '50px'}}>Hi I'm <a href="https://teef.dev" target="_blank" rel="noopener noreferrer">teef</a>.</p>
+        <p><Link href="/"><a>&#8592; back</a></Link></p>
+        </div>
     )
 }

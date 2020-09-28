@@ -10,8 +10,29 @@ export default function Home() {
     const pageStyle = {
         textAlign: 'center',
         fontFamily: 'Helvetica',
+        fontWeight: 300,
         margin: '40px auto',
-        width: '300px'
+        width: '400px'
+    }
+
+    const buttonStyle = {
+        margin: '25px auto', 
+        backgroundColor: 'black', 
+        color: 'white', 
+        width: '200px', 
+        height: '50px', 
+        border: '1px solid black', 
+        borderRadius: '5px'
+    }
+
+    const saveStyle = {
+        margin: '5px auto', 
+        backgroundColor: 'white', 
+        color: 'black',
+        border: '1px solid black', 
+        width: '125px', 
+        height: '30px',  
+        borderRadius: '5px'
     }
 
     const handleChange = (e) => {
@@ -30,23 +51,21 @@ export default function Home() {
 
 
   return (
-    <div className="container">
+    <div className="container" style={pageStyle}>
         <h1>Create Next App</h1>
-        <p>Next.js is a framework that uses React</p><p>Mostly rendered on the server side</p>
-        <p>Which... ok, enough <Link href="/about"><a><u>about us</u></a></Link>, let's talk about you</p>
-        <input style={{height: '30px', width: '200px'}} type='text' placeholder='tell me about yourself' onChange={handleChange} value={fact}></input>
-        <button onClick={saveFact}>Save this fact</button><br/>
-        <small>random facts we got on you: {factList.length}</small>
-        <button style={{margin: '25px auto', backgroundColor: 'black', color: 'white', width: '200px', height: '50px', border: '1px solid black', borderRadius: '5px'}}
+        <p style={{textAlign: 'center'}}>Next.js is a framework that uses React<br />Mostly rendered on the server side<br />
+        Which... ok, enough <Link href="/about"><a><u>about us</u></a></Link>, let's talk about you!</p>
+        <p>Enter and save a few random facts about yourself and then hit the random fact button and we'll print a random fact below for us to ponder together. <br />We assume literally everything you say is true.</p>
+        <input style={{height: '30px', width: '250px', margin: '10px auto'}} type='text' 
+        placeholder='a random fact about me is...' onChange={handleChange} value={fact}></input>
+        <button onClick={saveFact} style={saveStyle}>Save this fact</button><br/>
+        <small><em>random facts we got on you: {factList.length}</em></small>
+        <button style={buttonStyle}
         onClick={randomize}
         >
             <strong>Hit me with a random fact!</strong></button>
         <hr/>
         <h2>{randomFact}</h2>
-        <br />
-        <h3>{fact}</h3>
-
-      
 
 
       <style jsx>{`
@@ -57,119 +76,6 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
         }
 
         @media (max-width: 600px) {
@@ -185,10 +91,28 @@ export default function Home() {
         body {
           padding: 0;
           margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
+          font-family: Helvetica;
         }
+
+        button{
+          cursor: pointer;
+        }
+
+        ::-webkit-input-placeholder {
+          text-align: center;
+       }
+       
+       :-moz-placeholder { /* Firefox 18- */
+          text-align: center;  
+       }
+       
+       ::-moz-placeholder {  /* Firefox 19+ */
+          text-align: center;  
+       }
+       
+       :-ms-input-placeholder {  
+          text-align: center; 
+       }
 
         * {
           box-sizing: border-box;
